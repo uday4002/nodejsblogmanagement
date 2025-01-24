@@ -11,7 +11,7 @@ const CommentsSection = ({ blogId, token }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/${blogId}/comments`);
+        const response = await axios.get(`https://nodejsblogmanagement-backend.onrender.com/${blogId}/comments`);
         setComments(response.data.data); // Use the 'data' key from response
       } catch (err) {
         console.error("Error fetching comments:", err);
@@ -32,7 +32,7 @@ const CommentsSection = ({ blogId, token }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        `http://localhost:3001/${blogId}/comments`,
+        `https://nodejsblogmanagement-backend.onrender.com/${blogId}/comments`,
         { content: newComment },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -52,7 +52,7 @@ const CommentsSection = ({ blogId, token }) => {
 
     setLoading(true);
     try {
-      await axios.delete(`http://localhost:3001/comments/${commentId}`, {
+      await axios.delete(`https://nodejsblogmanagement-backend.onrender.com/comments/${commentId}`, {
         headers: { Authorization: `Bearer ${token}` },
       }).then((res)=>console.log(res.data.message))
       // Remove the deleted comment from the state
