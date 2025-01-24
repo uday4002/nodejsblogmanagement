@@ -42,7 +42,7 @@ const Login = () => {
     const onFormSubmit = async(e) =>{
         e.preventDefault()
 
-        const response = await axios.post('http://localhost:3001/login',{userName,password})
+        const response = await axios.post('https://nodejsblogmanagement-backend.onrender.com/login',{userName,password})
         if(response.data.success==='true'){
             Cookies.set('jwt_token',response.data.token)
             navigate('/')
