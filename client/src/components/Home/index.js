@@ -26,6 +26,7 @@ const Home=()=>{
 
     const clickOnLogoutButton = () =>{
         Cookies.remove('jwt_token')
+        navigate('/login')
     }
 
     return(
