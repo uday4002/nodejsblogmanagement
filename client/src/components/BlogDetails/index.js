@@ -64,7 +64,7 @@ const BlogDetails = () =>{
         const confirmDelete = window.confirm('Are you sure you want to delete this blog?')
         if (!confirmDelete) return
         try{
-            const response = await axios.delete(`http://localhost:3001/blogs/${id}`,{
+            const response = await axios.delete(`https://nodejsblogmanagement-backend.onrender.com/blogs/${id}`,{
                 headers:{
                     Authorization:`Bearer ${token}`
                 }
