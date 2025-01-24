@@ -6,9 +6,13 @@ export const HeaderContainer = styled.div`
     box-sizing:border-box;
     display:flex;
     align-items:center;
-    justify-content:center;
+    justify-content:space-between;
     background-color:#000000;
     padding-left:30px;
+`
+export const Align = styled.div`
+    display:flex;
+    align-items:center;
 `
 export const BoxItem = styled.h1`
     font-size:28px;
