@@ -12,7 +12,8 @@ import {
     HeadingSpan,
     GetStartedButton,
     BlogImage,
-    LogoutButton
+    LogoutButton,
+    Align
 } from './homeComponentStyles'
 
 const Home=()=>{
@@ -31,11 +32,13 @@ const Home=()=>{
         <MainContainer>
             <HeaderContainer>
                 <div>
-                    <BoxItem>B</BoxItem>
-                    <BoxItem>L</BoxItem>
-                    <BoxItem>O</BoxItem>
-                    <BoxItem>G</BoxItem>
-                    <WebsiteHeading>Management</WebsiteHeading>
+                    <Align>
+                        <BoxItem>B</BoxItem>
+                        <BoxItem>L</BoxItem>
+                        <BoxItem>O</BoxItem>
+                        <BoxItem>G</BoxItem>
+                        <WebsiteHeading>Management</WebsiteHeading>
+                    </Align>
                 </div>
                 <LogoutButton onClick={clickOnLogoutButton}>Logout</LogoutButton>
             </HeaderContainer>
