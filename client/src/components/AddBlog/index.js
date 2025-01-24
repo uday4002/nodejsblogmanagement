@@ -32,7 +32,7 @@ const AddBlog = () => {
     const onFormSubmit = async(e) =>{
         e.preventDefault()
         const token = Cookies.get('jwt_token')
-        const response = await axios.post(`http://localhost:3001/blogs`,{title,content},{
+        const response = await axios.post(`https://nodejsblogmanagement-backend.onrender.com`,{title,content},{
             headers:{
                 Authorization:`Bearer ${token}`
             }
