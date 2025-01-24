@@ -6,6 +6,7 @@ export const HeaderContainer = styled.div`
     box-sizing:border-box;
     display:flex;
     align-items:center;
+    justify-content:center;
     background-color:#000000;
     padding-left:30px;
 `
@@ -66,4 +67,16 @@ export const BlogImage = styled.img`
     width:450px;
     margin-left:280px;
     border-radius:20px;
+`
+export const LogoutButton = styled.button`
+    background-color: #3b82f6;
+    color:#ffffff;
+    padding:10px;
+    border-width:0px;
+    font-size:16px;
+    font-family:Roboto;
+    border-radius:8px;
+    font-weight:bold;
+    margin-top:10px;
+    margin-bottom:10px;
 `
