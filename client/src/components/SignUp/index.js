@@ -57,7 +57,7 @@ const SignUp = () => {
 
     const onFormSubmit = async(e) =>{
         e.preventDefault()
-        const response = await axios.post('http://localhost:3001/signup', {name,userName,email,password})
+        const response = await axios.post('https://nodejsblogmanagement-backend.onrender.com/signup', {name,userName,email,password})
         if(response.data.success==='true'){
             Cookies.set('jwt_token',response.data.token)
             setIsFormSubmit(true)
@@ -74,7 +74,7 @@ const SignUp = () => {
     const VerifyEmail = async(e) =>{
         e.preventDefault()
         try{
-            const response = await axios.post('http://localhost:3001/verify-email',{email,otp})
+            const response = await axios.post('https://nodejsblogmanagement-backend.onrender.com/verify-email',{email,otp})
             if(response.data.success==='true'){
                 setIsEmailVarified(true)
                 navigate('/')
