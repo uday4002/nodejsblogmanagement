@@ -24,7 +24,7 @@ const EditBlog = () => {
     useEffect(() => {
         const fetchBlogDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/blogs/${id}`)
+                const response = await axios.get(`https://nodejsblogmanagement-backend.onrender.com/blogs/${id}`)
                 if (response.data.success === 'true') {
                     const fetchedBlog = response.data.data
                     setTitle(fetchedBlog.title)
@@ -53,7 +53,7 @@ const EditBlog = () => {
     const onFormSubmit = async(e) =>{
         e.preventDefault()
         const token = Cookies.get('jwt_token')
-        const response = await axios.put(`http://localhost:3001/blogs/${id}`,{title,content},{
+        const response = await axios.put(`https://nodejsblogmanagement-backend.onrender.com/blogs/${id}`,{title,content},{
             headers:{
                 Authorization:`Bearer ${token}`
             }
