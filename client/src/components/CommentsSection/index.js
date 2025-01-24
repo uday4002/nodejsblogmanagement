@@ -6,6 +6,7 @@ const CommentsSection = ({ blogId, token }) => {
   const [newComment, setNewComment] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [userData, setUserData] = useState("");
 
   // Fetch comments for the blog
   useEffect(() => {
@@ -18,6 +19,26 @@ const CommentsSection = ({ blogId, token }) => {
         setError("Failed to load comments. Please try again.");
       }
     };
+
+     const fetchUserData = async() =>{
+          try{
+              const token = Cookies.get('jwt_token')
+              const response = await axios.get('https://nodejsblogmanagement-backend.onrender.com/user',{
+                  headers: {
+                      Authorization: `Bearer ${token}`
+                  }
+              })
+              if (response.data.success === 'true') {
+                  setUserData(response.data.data)
+              } else {
+                  setError(response.data.message)
+              }
+          }catch (err) {
+              setError('An error occurred while fetching blogs.')
+              console.error(err);
+          }
+      }
+    fetchUserData();
     fetchComments();
   }, [blogId]);
 
@@ -87,7 +108,7 @@ const CommentsSection = ({ blogId, token }) => {
           {comments.map((comment) => (
             <li key={comment._id} style={{ marginTop: "15px" }}>
               <p>{comment.content}</p>
-              <small>By: {comment.user}</small>
+              <small>By: {userData.name}</small>
               {token && (
                 <button
                   onClick={() => handleDeleteComment(comment._id)}
