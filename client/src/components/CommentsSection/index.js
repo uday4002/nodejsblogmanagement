@@ -73,7 +73,7 @@ const CommentsSection = ({ blogId, token }) => {
     if (!window.confirm("Are you sure you want to delete this comment?")) return;
     setLoading(true);
    try {
-      const response = await axios.delete(`http://localhost:3001/comments/${commentId}`, {
+      const response = await axios.delete(`https://nodejsblogmanagement-backend.onrender.com/comments/${commentId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       if(response.data.success==='true'){
