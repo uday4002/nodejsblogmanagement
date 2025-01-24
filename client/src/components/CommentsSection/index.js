@@ -70,15 +70,17 @@ const CommentsSection = ({ blogId, token }) => {
 
   // Delete a comment
   const handleDeleteComment = async (commentId) => {
-    if (!window.confirm("Are you sure you want to delete this comment?")) return;
-
     setLoading(true);
-    try {
-      await axios.delete(`https://nodejsblogmanagement-backend.onrender.com/comments/${commentId}`, {
+   try {
+      const response = await axios.delete(`http://localhost:3001/comments/${commentId}`, {
         headers: { Authorization: `Bearer ${token}` },
-      }).then((res)=>console.log(res.data.message))
-      // Remove the deleted comment from the state
-      setComments((prev) => prev.filter((comment) => comment._id !== commentId));
+      })
+      if(response.data.success==='true'){
+        if (!window.confirm("Are you sure you want to delete this comment?")) return;
+        setComments((prev) => prev.filter((comment) => comment._id !== commentId));
+      }else{
+        alert(response.data.message)
+      }
     } catch (err) {
       console.error("Error deleting comment:", err);
       alert("Failed to delete comment.");
