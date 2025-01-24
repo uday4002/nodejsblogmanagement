@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
 import { AlignItems } from '../SignUp/loginComponentStyles'
 import {
     HeaderContainer,
@@ -10,7 +11,8 @@ import {
     WelcomeHeading,
     HeadingSpan,
     GetStartedButton,
-    BlogImage
+    BlogImage,
+    LogoutButton
 } from './homeComponentStyles'
 
 const Home=()=>{
@@ -21,14 +23,21 @@ const Home=()=>{
         navigate('/blogs')
     }
 
+    const clickOnLogoutButton = () =>{
+        Cookies.remove('jwt_token')
+    }
+
     return(
         <MainContainer>
             <HeaderContainer>
-                <BoxItem>B</BoxItem>
-                <BoxItem>L</BoxItem>
-                <BoxItem>O</BoxItem>
-                <BoxItem>G</BoxItem>
-                <WebsiteHeading>Management</WebsiteHeading>
+                <div>
+                    <BoxItem>B</BoxItem>
+                    <BoxItem>L</BoxItem>
+                    <BoxItem>O</BoxItem>
+                    <BoxItem>G</BoxItem>
+                    <WebsiteHeading>Management</WebsiteHeading>
+                </div>
+                <LogoutButton onClick={clickOnLogoutButton}>Logout</LogoutButton>
             </HeaderContainer>
             <HomeContainer>
                 <AlignItems>
