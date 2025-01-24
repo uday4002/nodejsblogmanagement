@@ -21,7 +21,7 @@ const BlogDetails = () =>{
         const fetchUserData = async() =>{
             try{
                 const token = Cookies.get('jwt_token')
-                const response = await axios.get('http://localhost:3001/user',{
+                const response = await axios.get('https://nodejsblogmanagement-backend.onrender.com/user',{
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -39,7 +39,7 @@ const BlogDetails = () =>{
 
         const fetchBlogDetails = async () => {    
             try {
-                const response = await axios.get(`http://localhost:3001/blogs/${id}`)
+                const response = await axios.get(`https://nodejsblogmanagement-backend.onrender.com/blogs/${id}`)
         
                 if (response.data.success === 'true') {
                     setBlogData(response.data.data)
