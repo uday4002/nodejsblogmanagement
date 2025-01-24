@@ -112,7 +112,7 @@ const CommentsSection = ({ blogId, token }) => {
           {comments.map((comment) => (
             <li key={comment._id} style={{ marginTop: "15px" }}>
               <p>{comment.content}</p>
-              <small>By: {userData.name}</small>
+              <small>By: {userData.userName}</small>
               {token && (
                 <button
                   onClick={() => handleDeleteComment(comment._id)}
