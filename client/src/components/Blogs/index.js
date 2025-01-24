@@ -79,7 +79,7 @@ const Blogs = () => {
                         <BlogItem key={eachItem._id} info={eachItem} />
                     ))
                 ) : (
-                    <p>Loading</p>
+                    <p>Loading...</p>
                 )}
             </ListContainer>
         </BlogsContainer>
