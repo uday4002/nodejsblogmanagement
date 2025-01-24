@@ -70,13 +70,14 @@ const CommentsSection = ({ blogId, token }) => {
 
   // Delete a comment
   const handleDeleteComment = async (commentId) => {
+    if (!window.confirm("Are you sure you want to delete this comment?")) return;
     setLoading(true);
    try {
       const response = await axios.delete(`http://localhost:3001/comments/${commentId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       if(response.data.success==='true'){
-        if (!window.confirm("Are you sure you want to delete this comment?")) return;
+        
         setComments((prev) => prev.filter((comment) => comment._id !== commentId));
       }else{
         alert(response.data.message)
