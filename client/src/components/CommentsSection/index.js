@@ -19,6 +19,7 @@ const CommentsSection = ({ blogId, token }) => {
         setError("Failed to load comments. Please try again.");
       }
     };
+    
 
     fetchComments();
   }, [blogId]);
