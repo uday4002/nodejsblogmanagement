@@ -249,7 +249,7 @@ app.post('/:id/comments', authMiddleware, async(req,res)=>{
             return res.json({message:'Content is required.'})
         }
 
-        const comment = new commentModel({content:content, blog:id, user: req.user.userName})
+        const comment = new commentModel({content:content, blog:id, user: req.user.user})
 
         await comment.save()
         res.json({success:'true',message:'Comment added successfully.',comment})
